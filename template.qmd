@@ -1,5 +1,7 @@
 ---
 format: mnbinstitute-revealjs
+# revealjs-plugins:
+#   - poll
 ---
 
 ```{python}
@@ -50,7 +52,46 @@ list.files(pattern = "wide_mnb", recursive = TRUE) |>
 
 From @CameronTrivedi2013:
 
-<link rel="stylesheet" href="poll/poll.css">
+```{=html}
+
+<link rel="stylesheet" href="poll/style.css">
+<script src="pull/plugin.js"></script>
+<div>
+<h2>Poll</h2>
+<p>Live polls can be included in presentations, allowing seminar participants to vote.</p>
+<div class="poll" data-poll="1">
+					<button data-value="yes">Yes</button>
+					<br>
+					<button data-value="no">No</button>
+</div>
+<p style="font-size:24px;color:gray;">Responses: <span class="voters" data-poll="1">0</span></p>
+</div>
+```
+
+---
+
+```{=html}
+<h2>Poll results</h2>
+<div>Poll results can be shown as text.</div>
+<blockquote class="results" data-poll="1">
+					Yes: <span data-value="yes">0</span><br>
+					No: <span data-value="no">0</span><br>
+					<p style="font-size:24px;color:gray;">Total: <span class="voters" data-poll="1">0</span></p>
+</blockquote>
+<div>Alternatively, results can be shown as charts (see next slides).</div>
+```
+
+---
+
+```{=html}
+<h2>Pie chart of poll result</h2>
+<div style="height:480px">
+<canvas data-chart="pie" data-poll="1">
+, Yes, No
+, 0, 0
+</canvas>
+</div>
+```
 
 ## Motivation
 

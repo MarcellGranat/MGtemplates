@@ -9,8 +9,6 @@ contributes:
           echo: false
     revealjs:
       output-file: index.html
-      revealjs-plugins:
-        - poll
       keep-md: false
       center-title-slide: false
       number-sections: false

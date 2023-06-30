@@ -1,3 +1,4 @@
 name: poll
-script: poll.js
-stylesheet: poll.css
+script: plugin.js
+stylesheet: style.css
+self-contained: false

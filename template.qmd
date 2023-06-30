@@ -30,11 +30,7 @@ img.save('qrcode.png')
 
 <h2>Outrageously efficient exploratory data analysis</h2>
 
-<p style="color: #02294c; font-style: italic;">
-
-with Apache Arrow and dplyr
-
-</p>
+[with Apache Arrow and dplyr]{style="color: #02294c; font-style: italic;"}
 
 <hr>
 
@@ -68,7 +64,10 @@ list.files(pattern = "wide_mnb", recursive = TRUE) |>
 
 ------------------------------------------------------------------------
 
-![](https://drive.google.com/uc?id=1Ce3mki2NT95ItChtNZayhlfj49zFxHzB)
+<div style="text-align: center;">
+  <img src="https://drive.google.com/uc?id=17VtYW_jKtkzPTG1TKQCoZ7WDnwUn53dX" style="width: 90%;">
+</div>
+
 
 ------------------------------------------------------------------------
 

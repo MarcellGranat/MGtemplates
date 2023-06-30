@@ -1,0 +1,3 @@
+name: poll
+script: poll.js
+stylesheet: poll.css

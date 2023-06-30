@@ -53,35 +53,39 @@ list.files(pattern = "wide_mnb", recursive = TRUE) |>
 From @CameronTrivedi2013:
 
 ```{=html}
-
+<script src="seminar/plugin.js"></script>
+<section>
+	<h3>Host seminar</h3>
+	<div>Click <a id="host" href="#"><i class="fa fa-users"></i></a> to host the seminar.</div>
+</section>
 <link rel="stylesheet" href="poll/style.css">
 <script src="pull/plugin.js"></script>
 <div>
 <h2>Poll</h2>
 <p>Live polls can be included in presentations, allowing seminar participants to vote.</p>
 <div class="poll" data-poll="1">
-					<button data-value="yes">Yes</button>
-					<br>
-					<button data-value="no">No</button>
+                    <button data-value="yes">Yes</button>
+                    <br>
+                    <button data-value="no">No</button>
 </div>
 <p style="font-size:24px;color:gray;">Responses: <span class="voters" data-poll="1">0</span></p>
 </div>
 ```
 
----
+------------------------------------------------------------------------
 
 ```{=html}
 <h2>Poll results</h2>
 <div>Poll results can be shown as text.</div>
 <blockquote class="results" data-poll="1">
-					Yes: <span data-value="yes">0</span><br>
-					No: <span data-value="no">0</span><br>
-					<p style="font-size:24px;color:gray;">Total: <span class="voters" data-poll="1">0</span></p>
+                    Yes: <span data-value="yes">0</span><br>
+                    No: <span data-value="no">0</span><br>
+                    <p style="font-size:24px;color:gray;">Total: <span class="voters" data-poll="1">0</span></p>
 </blockquote>
 <div>Alternatively, results can be shown as charts (see next slides).</div>
 ```
 
----
+------------------------------------------------------------------------
 
 ```{=html}
 <h2>Pie chart of poll result</h2>
@@ -92,7 +96,6 @@ From @CameronTrivedi2013:
 </canvas>
 </div>
 ```
-
 ## Motivation
 
 -   Modern technologies allow for better statistical analysis of economic indicators like inflation

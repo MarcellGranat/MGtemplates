@@ -1,4 +1,0 @@
-name: poll
-script: plugin.js
-stylesheet: style.css
-self-contained: false

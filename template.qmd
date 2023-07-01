@@ -95,7 +95,6 @@ q_print()
       <p>Your message goes here...</p>
 </div>
 ```
-
 . . .
 
 ```{=html}
@@ -139,13 +138,116 @@ iris |>
 
 ```{mermaid}
 %%| fig-responsive: false
-%%| fig-width: 10
+%%| fig-width: 7
 
 graph TD
   A[FOMC statements] --> B([Future path of policy])
 	C[Federeal fund rate target] -->|1/4| D[Asset prices]
 	B ==>|3/4| D
 ```
+
+## Test
+
+::: callout-note
+## yes
+
+test
+:::
+
+## Survey
+
+::: panel-tabset
+## Question
+
+## Answers
+
+```{=html}
+<html>
+  <head>
+    <title>Poll Pie Chart</title>
+    <style>
+      #chartContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 53vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div id="chartContainer">
+      <canvas id="myChart" width="500"></canvas>
+    </div>
+    <script>
+      function fetchPollData(pollId) {
+        const api_url = `https://api.strawpoll.com/v3/polls/${pollId}`;
+
+        const headers = {
+          "Accept": "application/json",
+          "X-API-Key": "33f35a8e-1761-11ee-96fb-dd98527c61c9"
+        };
+
+        return fetch(api_url, {
+          headers: headers
+        })
+          .then(response => response.json())
+          .then(pollData => {
+            const optionNames = pollData.poll_options.map(option => option.value);
+            const optionValues = pollData.poll_options.map(option => option.vote_count);
+
+            return {
+              title: pollData.title,
+              poll_options: optionNames.map((name, index) => ({
+                name: name,
+                value: optionValues[index]
+              }))
+            };
+          });
+      }
+
+      fetchPollData("wby5Ae91dyA")
+        .then(pollData => {
+          const optionNames = pollData.poll_options.map(option => option.name);
+          const optionValues = pollData.poll_options.map(option => option.value);
+
+          new Chart(document.getElementById("myChart"), {
+            type: "pie",
+            data: {
+              labels: optionNames,
+              datasets: [
+                {
+                  data: optionValues,
+                  backgroundColor: [
+                    "#FF6384",
+                    "#36A2EB",
+                    "#FFCE56",
+                    "#98FB98"
+                  ]
+                }
+              ]
+            },
+            options: {
+              responsive: false,
+              legend: {
+                display: true,
+                position: "bottom"
+              },
+              title: {
+                display: true,
+                text: pollData.title
+              }
+            }
+          });
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    </script>
+  </body>
+</html>
+```
+:::
 
 ------------------------------------------------------------------------
 
@@ -157,11 +259,9 @@ Slides are available at:
 
 `r fontawesome::fa("file-powerpoint", "#aa091d")`  [marcellgranat.com](https://marcellgranat.com)
 
-`r emo::ji("email")` [granat.marcell@nje.hu](mailto:granat.marcell@nje.hu)
+`r emo::ji("email")` [granat.marcell\@nje.hu](mailto:granat.marcell@nje.hu)
 
 `r fontawesome::fa("linkedin", "#0b66c2")` Always keen to connect!
-
-
 :::
 
 ::: column

@@ -8,6 +8,8 @@ contributes:
         opts_chunk:
           echo: false
     revealjs:
+      # revealjs-plugins:
+      # - myplugin
       output-file: index.html
       keep-md: false
       center-title-slide: false

@@ -7,6 +7,55 @@ library(gt)
 
 .gt_finalise <- function(.gt, ...) {
   
+  .gt <- .gt |> 
+    tab_options(
+      column_labels.background.color = "#114853",
+      table_body.hlines.color = "grey80",
+      table.border.top.width = px(3),
+      table.border.top.color = "black",
+      table.border.bottom.color = "black",
+      table.border.bottom.width = px(3),
+      column_labels.border.top.width = px(3),
+      heading.align = "left",
+      column_labels.border.top.color = "transparent",
+      column_labels.vlines.style = "none",
+      column_labels.border.bottom.width = px(3),
+      column_labels.border.bottom.color = "transparent",
+      row.striping.background_color = "#f9f9fb",
+      data_row.padding = px(3),
+      table.width = px(1000),
+      table.font.size = px(21),
+      heading.title.font.size = px(26),
+      footnotes.font.size = px(20),
+      ...
+    ) |> 
+    cols_align(
+      align = "center",
+      columns = everything()
+    ) |> 
+    opt_table_font(
+      font = c(
+        google_font(name = "IBM Plex Sans"),
+        default_fonts()
+      )
+    )
+  
+  cap <- knitr::opts_current$get()$cap
+  if (!is.null(cap)) {
+    .gt <- .gt |> 
+      tab_header(
+        title = md(cap)
+      )
+  }
+  
+  comment <- knitr::opts_current$get()$comment
+  if (!is.null(comment)) {
+    .gt <- .gt |> 
+      tab_footnote(
+        md(comment)
+      )
+  }
+  
   .gt
 }
 
@@ -14,12 +63,15 @@ library(gt)
 
 custom_theme <- theme_minimal(base_family = "IBM Plex Sans", base_size = 18) + 
   theme(
-    title = element_text(size = 20, face = "bold"),
+    axis.title = element_text(size = 20, face = "bold"),
+    legend.title = element_text(size = 20, face = "bold"),
+    plot.title = ggtext::element_markdown(size = 24),
     strip.text = element_text(size = 20, family = "IBM Plex Sans Medium", face = NULL),
     strip.background = element_rect(fill = "#90d1d5"),
     legend.position = "bottom",
     legend.background = element_blank(),
-    plot.caption = element_text(size = 16, face = "italic", hjust = 0),
+    plot.title.position = "plot",
+    plot.caption = ggtext::element_markdown(size = 16, hjust = 0),
     plot.caption.position = "plot",
   )
 
@@ -48,7 +100,23 @@ update_geom_defaults("line", list(size = 4, color = .co("blue")))
 
 `-.gg` <<- function(e1, e2) e2(e1)
 
-.gg_finalise <- function(plot_name = ggplot2::last_plot())  {
-  plot_name
+.gg_finalise <- function(p = ggplot2::last_plot())  {
+  cap <- knitr::opts_current$get()$cap
+  if (!is.null(cap)) {
+    p <- p +
+      labs(
+        title = cap
+      )
+  }
+  
+  comment <- knitr::opts_current$get()$comment
+  if (!is.null(comment)) {
+    p <- p + 
+      labs(
+        caption = comment
+      )
+  }
+  
+  p
 }
 

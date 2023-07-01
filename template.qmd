@@ -58,21 +58,6 @@ list.files(pattern = "wide_mnb", recursive = TRUE) |>
 
 # Introduction
 
-```{=html}
-<div class="strawpoll-embed" id="strawpoll_wby5Ae91dyA" style="height: 480px; max-width: 900px; width: 100%; margin: 0 auto; display: flex; flex-direction: column;"><iframe title="StrawPoll Embed" id="strawpoll_iframe_wby5Ae91dyA" src="https://strawpoll.com/embed/wby5Ae91dyA" style="position: static; visibility: visible; display: block; width: 100%; flex-grow: 1;" frameborder="0" allowfullscreen allowtransparency>Loading...</iframe><script async src="https://cdn.strawpoll.com/dist/widgets.js" charset="utf-8"></script></div>
-```
-
-------------------------------------------------------------------------
-
-<div style="text-align: center;">
-  <img src="https://drive.google.com/uc?id=17VtYW_jKtkzPTG1TKQCoZ7WDnwUn53dX" style="width: 90%;">
-</div>
-
-
-------------------------------------------------------------------------
-
-## Motivation
-
 From @CameronTrivedi2013:
 
 -   Modern technologies allow for better statistical analysis of economic indicators like inflation
@@ -106,8 +91,8 @@ q_print()
 
 ```{r}
 #| label: fig_cars
-#| cap: These are cars
-#| comment: this is subcap
+#| cap: These are **cars**.
+#| comment: This is *subcap*.
 
 ggplot(cars) + 
   geom_point(aes(speed, dist, fill = speed > 10)) +
@@ -119,15 +104,49 @@ ggplot(cars) +
 
 ```{r}
 #| label: tbl_cars
-#| cap: These are cars
-#| comment: This is a subcap
+#| cap: These are **cars**.
+#| comment: This is a *subcap*.
 
-cars |> 
+iris |> 
   head() |> 
   gt() |> 
   .gt_finalise()
 ```
 
+## Mermaid
+
+```{mermaid}
+%%| fig-responsive: false
+%%| fig-width: 10
+
+graph TD
+  A[FOMC statements] --> B([Future path of policy])
+	C[Federeal fund rate target] -->|1/4| D[Asset prices]
+	B ==>|3/4| D
+```
+
 ------------------------------------------------------------------------
 
-<h5>Others also liked `r emo::ji("thumb")`</h5>
+<h5>Thank you for your **attention!** `r emo::ji("wave")`</h5>
+
+::: columns
+::: column
+Slides are available at:
+
+`r fontawesome::fa("file-powerpoint", "#aa091d")`  [marcellgranat.com](https://marcellgranat.com)
+
+`r emo::ji("email")` [granat.marcell@nje.hu](mailto:granat.marcell@nje.hu)
+
+`r fontawesome::fa("linkedin", "#0b66c2")` Always keen to connect!
+
+
+:::
+
+::: column
+![](qrcode.png){fig-align="center" width="34%"}
+:::
+:::
+
+<hr>
+
+<h5>And others also liked `r emo::ji("+1")`</h5>

@@ -13,7 +13,6 @@ contributes:
       center-title-slide: false
       number-sections: false
       incremental: true
-      show-notes: false
       code-overflow: wrap
       logo: "logo.png"
       code-copy: true

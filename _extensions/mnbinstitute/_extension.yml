@@ -7,9 +7,21 @@ contributes:
       knitr:
         opts_chunk:
           echo: false
+    docx:
+      keep-md: false
+      fig-format: png
+      number-sections: true
+      bibliography: references.bib
+      reference-doc: custom-reference-doc.docx
+      knitr:
+        opts_chunk: 
+          echo: false
+          eval: true
+          collapse: true
+          comment: "#>"
+          fig-width: 6
+          fig.align: "center"
     revealjs:
-      # revealjs-plugins:
-      # - myplugin
       output-file: index.html
       keep-md: false
       center-title-slide: false

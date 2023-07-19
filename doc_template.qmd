@@ -1,0 +1,61 @@
+---
+title: Short Paper
+subtitle: A Short Subtitle
+abstract: |
+  This is the abstract. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum augue turpis, dictum non malesuada a, volutpat eget velit. Nam placerat turpis purus, eu tristique ex tincidunt et. Mauris sed augue eget turpis ultrices tincidunt. Sed et mi in leo porta egestas. Aliquam non laoreet velit. Nunc quis ex vitae eros aliquet auctor nec ac libero. Duis laoreet sapien eu mi luctus, in bibendum leo molestie. Sed hendrerit diam diam, ac dapibus nisl volutpat vitae. Aliquam bibendum varius libero, eu efficitur justo rutrum at. Sed at tempus elit.
+format: academic-pdf
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+list.files(pattern = "template_fns", recursive = TRUE, full.names = TRUE) |> 
+  keep(str_detect, "academic") |> 
+  source()
+```
+
+Deserunt Lorem pariatur velit ex aute exercitation nisi ea sint sint aliquip culpa cupidatat velit aliquip. Quis et esse adipisicing exercitation. Ullamco esse cupidatat quis incididunt irure cupidatat reprehenderit. Aliquip ut velit ut ex excepteur magna aliqua veniam dolore elit esse qui enim.
+
+Deserunt Lorem pariatur velit ex aute exercitation nisi ea sint sint aliquip culpa cupidatat velit aliquip. Quis et esse adipisicing exercitation. Ullamco esse cupidatat quis incididunt irure cupidatat reprehenderit. Aliquip ut velit ut ex excepteur magna aliqua veniam dolore elit esse qui enim.
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this [@fig-cars]:
+
+@tbl-cars
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+```{r}
+#| label: fig-cars
+#| fig-cap: These are **cars**.
+
+ggplot(cars) + 
+  geom_point(aes(speed, dist, fill = speed > 10)) +
+  geom_line(aes(speed, dist))
+```
+
+```{r}
+#| label: tbl-cars
+#| tbl-cap: These are **cars**.
+
+iris |> 
+  head() |> 
+  gt() |> 
+  .gt_finalise()
+```
+
+The `echo: false` option disables the printing of code (only output is displayed) [@abe2010].
